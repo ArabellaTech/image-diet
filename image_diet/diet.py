@@ -33,7 +33,7 @@ def squeeze_png():
     if settings.DIET_ADVPNG:
         commands.append(u"advpng -z4 '%(file)s'")
     if settings.DIET_PNGQUANT:
-        commands.append(u"pngquant '%(file)s' --ext .png --force --verbose")
+        commands.append(u"pngquant '%(file)s' --ext .png --force --verbose --quality 100")
     if settings.DIET_PNGCRUSH:
         commands.append(
             (u"pngcrush -rem gAMA -rem alla -rem cHRM -rem iCCP -rem sRGB "
