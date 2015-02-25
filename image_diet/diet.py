@@ -39,7 +39,7 @@ def squeeze_png():
              u"&& mv '%(file)s.diet' '%(file)s'")
         )
     if settings.DIET_PNGQUANT:
-        commands.append(u"pngquant '%(file)s' --ext .png --force --verbose --quality 90-100")
+        commands.append(u"pngquant --force --verbose --quality 90-100 '%(file)s' -o '%(file)s' ")
     return " && ".join(commands)
 
 
