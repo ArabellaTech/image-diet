@@ -15,6 +15,7 @@ class Command(BaseCommand):
             'optipng',
             'advpng',
             'pngcrush',
+            'pngquant',
         )
         not_found = []
         for tool in tools:
