@@ -93,6 +93,10 @@ an extension ``.diet``. Defaults to ``False``.
 Disable use of ``TOOLNAME``. Name has to be written in uppercase so
 ``DIET_JPEGOPTIM = False`` will disable jpegoptim. Defaults to ``True``.
 
+``DIET_PNGQUANT_BRUTE = False``
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+False by default. Enables full lossy compression of pngquant. Otherwise 
+pngquant compression quality is restricted to 90-100 - almost loosless.
 
 TODO/Wishlist
 =============
