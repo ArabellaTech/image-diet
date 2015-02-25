@@ -12,6 +12,7 @@ PNG:
 * OptiPNG (http://optipng.sourceforge.net/)
 * AdvanceCOMP PNG (http://advancemame.sourceforge.net/doc-advpng.html)
 * Pngcrush (http://pmt.sourceforge.net/pngcrush/)
+* PngQuant
 
 Ubuntu packages are:
 * libjpeg-progs
@@ -20,6 +21,7 @@ Ubuntu packages are:
 * optipng
 * advancecomp
 * pngcrush
+* pngquant
 
 CentOS packages are:
 * jpegtran: libjpeg
@@ -28,6 +30,7 @@ CentOS packages are:
 * optipng: optipng package in EPEL
 * advancecomp: advancecomp package on repoforge
 * pngcrush: pngcrush package on repoforge
+* pngquant: TODO update instructions
 
 Brew for MacOSX:
 * jpeg
@@ -36,6 +39,7 @@ Brew for MacOSX:
 * optipng
 * advancecomp
 * pngcrush
+* pngquant
 
 Alternative on MacOSX:
 Install imageoptim (http://imageoptim.com) and then symlink from /usr/bin/
@@ -46,4 +50,4 @@ sudo ln -s /Applications/ImageOptim.app/Contents/MacOS/jpegoptim
 sudo ln -s /Applications/ImageOptim.app/Contents/MacOS/jpegtran
 sudo ln -s /Applications/ImageOptim.app/Contents/MacOS/optipng
 sudo ln -s /Applications/ImageOptim.app/Contents/MacOS/pngcrush
-
+pngquant: TODO update instructions
