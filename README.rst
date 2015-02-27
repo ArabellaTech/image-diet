@@ -106,6 +106,13 @@ TODO/Wishlist
 - stop depending on tools that processed image will actually be smaller
 - add integrations for other image handling Django apps
 
+Arabella ToDo
+=============
+- python 3.x support
+- documentation update
+- backup files before compressing
+- add a flag that file was already compressed by image_diet
+- add support for storage other than local file system
 
 Known bugs
 ==========
