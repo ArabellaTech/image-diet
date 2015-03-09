@@ -65,7 +65,7 @@ def get_flag_path(path):
 
 def create_processed_file_flag(path):
     flag_path = get_flag_path(path)
-    call("touch %s" % flag_path, shell=True)
+    call("touch '%s'" % flag_path, shell=True)
 
 
 def squeeze(path, backup=settings.DIET_IMAGE_BACKUPS, flag_processed_file=settings.DIET_FLAG_PROCESSED_FILE,
