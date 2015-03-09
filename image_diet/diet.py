@@ -1,4 +1,6 @@
 import logging
+import time
+import datetime
 from os.path import isfile
 from subprocess import call, PIPE
 from imghdr import what as determinetype
@@ -45,17 +47,23 @@ def squeeze_png():
     return " && ".join(commands)
 
 
-def squeeze(path):
+def backup_copy(path):
+    if settings.DIET_IMAGE_BACKUPS:
+        timestamp = time.time()
+        timestamp = datetime.datetime.fromtimestamp(timestamp).strftime('-%Y-%m-%d-%H:%M:%S')
+        call("cp '%(file)s' '%(file)s'.'%(timestamp)s'" % {'file': path, 'timestamp': timestamp},
+             shell=True, stdout=PIPE)
+
+
+def squeeze(path, backup=settings.DIET_IMAGE_BACKUPS):
     '''Returns path of optimized image or None if something went wrong.'''
     if not isfile(path):
         logger.error("'%s' does not point to a file." % path)
         return None
 
-    if settings.DIET_DEBUG:  # Create a copy of original file for debugging purposes
-        call("cp '%(file)s' '%(file)s'.orig" % {'file': path},
-             shell=True, stdout=PIPE)
-
     filetype = determinetype(path)
+
+    backup_copy(path)
 
     squeeze_cmd = ""
     if filetype == "jpeg":
