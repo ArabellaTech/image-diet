@@ -50,8 +50,8 @@ def squeeze_png():
 def backup_copy(path):
     if settings.DIET_IMAGE_BACKUPS:
         timestamp = time.time()
-        timestamp = datetime.datetime.fromtimestamp(timestamp).strftime('-%Y-%m-%d-%H:%M:%S')
-        call("cp '%(file)s' '%(file)s''%(timestamp)s'" % {'file': path, 'timestamp': timestamp},
+        timestamp = datetime.datetime.fromtimestamp(timestamp).strftime('%Y-%m-%d-%H:%M:%S')
+        call("cp '%(file)s' '%(file)s-%(timestamp)s'" % {'file': path, 'timestamp': timestamp},
              shell=True, stdout=PIPE)
 
 
