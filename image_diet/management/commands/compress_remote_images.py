@@ -37,7 +37,7 @@ class Command(BaseCommand):
         # add more options, like
         # directories - all, cms, directory list
         print (directories)
-        
+        # fixme
         timestamp = time.time()
         timestamp = datetime.datetime.fromtimestamp(timestamp).strftime('-%Y-%m-%d-%H:%M:%S')
 
