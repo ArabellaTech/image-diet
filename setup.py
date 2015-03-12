@@ -10,7 +10,8 @@ unchanged. Provides a seemless integration with easy_thumbnails app, but can
 work with others too.'''
 
 setup(
-    author="Marko Samastur, Arabel.la",
+    author="Arabel.la",
+    author_email='geeks@arabel.la',
     name='django-image-diet',
     version='0.1',
     description='Remove unnecessary bytes from images',
