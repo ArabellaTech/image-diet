@@ -8,6 +8,7 @@ class ImageDietFileSystemStorage(StaticFilesStorage):
 
     def post_process(self, files, *args, **kwargs):
         results = []
+        print 'test'
         print settings
         die
         if settings.DIET_COMPRESS_STATIC_IMAGES:
