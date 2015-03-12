@@ -8,9 +8,6 @@ class ImageDietFileSystemStorage(StaticFilesStorage):
 
     def post_process(self, files, *args, **kwargs):
         results = []
-        print 'test'
-        print settings.DIET_COMPRESS_STATIC_IMAGES
-        die
         if settings.DIET_COMPRESS_STATIC_IMAGES:
             if 'image_diet' not in main_settings.INSTALLED_APPS:
                 raise NotImplementedError("You need to install django_image_diet to use DIET_COMPRESS_STATIC_IMAGES")

@@ -1,6 +1,6 @@
 from subprocess import call, PIPE
 from django.core.management.base import BaseCommand
-import image_diet.settings as settings
+from image_diet import settings
 
 
 class Command(BaseCommand):

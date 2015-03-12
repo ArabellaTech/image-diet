@@ -8,8 +8,8 @@ from django.core.management.base import BaseCommand  # , CommandError
 from django.core.files.storage import default_storage
 from django.core.files.base import ContentFile
 from basic_cms import settings as app_settings
-import image_diet.settings as settings
-from image_diet import squeeze
+from image_diet import settings
+from image_diet.diet import squeeze
 
 
 class Command(BaseCommand):

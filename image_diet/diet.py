@@ -4,7 +4,7 @@ import datetime
 import os
 from subprocess import call, PIPE
 from imghdr import what as determinetype
-import image_diet.settings as settings
+from image_diet import settings
 
 logger = logging.getLogger('image_diet')
 
