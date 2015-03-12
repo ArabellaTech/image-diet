@@ -7,12 +7,13 @@ from optparse import make_option
 from django.core.management.base import BaseCommand  # , CommandError
 from django.core.files.storage import default_storage
 from django.core.files.base import ContentFile
-from basic_cms import settings
+from basic_cms import settings as app_settings
+import image_diet.settings as settings
 from image_diet import squeeze
 
 
 class Command(BaseCommand):
-    help = "compress images on external filesystem using image_diet. Creates a backup copy of compressed files"
+    help = "Compress images on external filesystem using image_diet. Creates a backup copy of compressed files"
 
     option_list = BaseCommand.option_list + (
         make_option(
@@ -23,23 +24,26 @@ class Command(BaseCommand):
             help='Compress only new images',
         ),
         make_option(
-            "--directories",
-            action='store',
-            type="string",
-            default='all',
+            "--directory",
+            action='append',
+            type='string',
+            default=[],
             dest='directories',
-            help='Directories to compress. Options: all, directories list'
+            help='Directory to compress. Options: all, path, default all. Recursive.'
         ),
     )
 
     def handle(self, new_only, directories, **options):
+        if 'image_diet' not in app_settings.INSTALLED_APPS:
+            raise NotImplementedError("You need to install image_diet to use this command")
+        timestamp = time.time()
+        timestamp = datetime.datetime.fromtimestamp(timestamp).strftime('-%Y-%m-%d-%H:%M:%S')
+
         # todo:
         # add more options, like
         # directories - all, cms, directory list
-        print (directories)
-        # fixme
-        timestamp = time.time()
-        timestamp = datetime.datetime.fromtimestamp(timestamp).strftime('-%Y-%m-%d-%H:%M:%S')
+        if not directories:
+            directories.append('all')
 
         def process_file(path):
             """Process single file"""
@@ -64,15 +68,15 @@ class Command(BaseCommand):
                     default_storage.save(path, tmpfilehandle)
                     os.remove(tmpfilepath)
 
-        def compress_files(data, dirtree, new_only=False):
-            django_basic_cms_compressed_flag = "dbc_compressed"
+        def compress_files(directories, dirtree, new_only=False):
+            compressed_flag = settings.DIET_FLAG_PROCESSED_FILE
 
-            for f in data[1]:  # files from listdir
+            for f in directories[1]:  # files from listdir
 
                 if f and f.lower().endswith(('.png', '.jpg', '.jpeg', '.gif')):  # sometimes if == [u'']
                     dir_path = os.sep.join(dirtree)
                     path = os.path.join(dir_path, f)
-                    flagged_file_name = '.%s.%s' % (f, django_basic_cms_compressed_flag)
+                    flagged_file_name = '.%s.%s' % (f, compressed_flag)
                     flag_path = os.path.join(dir_path, flagged_file_name)
                     print("Processing %s" % path)
                     if new_only:
@@ -96,19 +100,18 @@ class Command(BaseCommand):
                         default_storage.delete(flag_path)
                     default_storage.save(flag_path, ContentFile(""))
 
-            for d in data[0]:  # directories from list_dir
+            for d in directories[0]:  # directories from list_dir
                 dirtree.append(d)
                 d = default_storage.listdir(os.sep.join(dirtree))
                 compress_files(d, dirtree, new_only)
                 dirtree.pop()  # remove last item, not needed anymore
 
-        if settings.BASIC_CMS_COMPRESS_IMAGES:
-            if 'image_diet' not in settings.INSTALLED_APPS:
-                raise NotImplementedError("You need to install image_diet to use BASIC_CMS_COMPRESS_IMAGES")
+        # proper start
+        if 'all' in directories:
+            directories = default_storage.listdir(os.path.sep)[0]
 
-            upload_dirs = [settings.PAGE_UPLOAD_ROOT, settings.FILEBROWSER_DIRECTORY]
-            for directory in upload_dirs:
-                if directory:
-                    dirtree = [directory]
-                    data = default_storage.listdir(directory)
-                    compress_files(data, dirtree, new_only)
+        for directory in directories:
+            if directory:
+                dirtree = [directory]
+                d = default_storage.listdir(directory)
+                compress_files(d, dirtree, new_only)
