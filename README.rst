@@ -100,6 +100,7 @@ pngquant compression quality is restricted to 90-100 - almost loosless.
 
 TODO/Wishlist
 =============
+- remove deprecated optparse - replace with argparse
 - stop depending on tools that processed image will actually be smaller
 - add integrations for other image handling Django apps
 
