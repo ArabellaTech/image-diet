@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 long_description = '''\
-image-diet is a Django application for removing unnecessary bytes from image
+django-image-diet is a Django application for removing unnecessary bytes from image
 files.  It optimizes images without changing their look or visual quality
 ("losslessly").
 
@@ -10,13 +10,12 @@ unchanged. Provides a seemless integration with easy_thumbnails app, but can
 work with others too.'''
 
 setup(
-    author="Marko Samastur",
-    author_email="markos@gaivo.net",
-    name='image-diet',
-    version='0.7.1',
+    author="Marko Samastur, Arabel.la",
+    name='django-image-diet',
+    version='0.1',
     description='Remove unnecessary bytes from images',
     long_description=long_description,
-    url='https://github.com/samastur/image-diet/',
+    url='https://github.com/ArabellaTech/django-image-diet',
     platforms=['OS Independent'],
     license='MIT License',
     classifiers=[
