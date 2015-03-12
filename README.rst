@@ -16,11 +16,11 @@ and is licensed under MIT license.
 
 Installation
 ============
-Add ``django_image_diet`` to ``INSTALLED_APPS`` setting::
+Add ``image_diet`` to ``INSTALLED_APPS`` setting::
 
     INSTALLED_APPS = (
         ...
-        'django_image_diet',
+        'image_diet',
     )
 
 Check which tools are already installed by executing:
@@ -65,7 +65,7 @@ using so I can add support for it).
 
 To do this import:
 
-    ``from django_image_diet import squeeze``
+    ``from image_diet import squeeze``
 
 And call ``squeeze(path_to_image)`` where ``path_to_image`` is an absolute
 path to image you want to optimize. Function returns ``None`` if there was a
