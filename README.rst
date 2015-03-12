@@ -81,6 +81,12 @@ process all images that can be found in those directories or their
 subdirectories.
 
 
+Available management commands
+-----------------------------
+- compress_remote_images
+- diet_images
+- check_diet_tools
+
 Configuration options
 ---------------------
 ``DIET_DEBUG = True``
