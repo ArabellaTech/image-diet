@@ -2,6 +2,10 @@
 django-image-diet
 ==========
 
+.. image:: https://d2weczhvl823v0.cloudfront.net/ArabellaTech/django-image-diet/trend.png
+   :alt: Bitdeli badge
+   :target: https://bitdeli.com/free
+
 django-image-diet is a Django application for removing unnecessary bytes from image
 files.  It optimizes images without changing their look or visual quality
 ("losslessly") and it also has the ability to decrease color depth of png, which is usually not noticeable to human eye.
@@ -115,8 +119,4 @@ Known bugs
 - app doesn't check if files exist so some operations could lead
   to data loss (if image folders contain files with .diet or .orig extension)
 
-
-.. image:: https://d2weczhvl823v0.cloudfront.net/ArabellaTech/django-image-diet/trend.png
-   :alt: Bitdeli badge
-   :target: https://bitdeli.com/free
 
