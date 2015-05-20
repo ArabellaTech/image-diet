@@ -114,3 +114,9 @@ Known bugs
 ==========
 - app doesn't check if files exist so some operations could lead
   to data loss (if image folders contain files with .diet or .orig extension)
+
+
+.. image:: https://d2weczhvl823v0.cloudfront.net/ArabellaTech/django-image-diet/trend.png
+   :alt: Bitdeli badge
+   :target: https://bitdeli.com/free
+
