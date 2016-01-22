@@ -86,7 +86,10 @@ class Command(BaseCommand):
                             should_process_file = True
                         else:
                             file_mt = default_storage.modified_time(path)
-                            flag_mt = default_storage.modified_time(flag_path)
+                            try:
+                                flag_mt = default_storage.modified_time(flag_path)
+                            except AttributeError:
+                                flag_mt = 0
                             if flag_mt < file_mt:
                                 should_process_file = True
 
