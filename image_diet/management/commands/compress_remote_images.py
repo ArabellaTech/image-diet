@@ -89,7 +89,7 @@ class Command(BaseCommand):
                             try:
                                 flag_mt = default_storage.modified_time(flag_path)
                             except AttributeError:
-                                flag_mt = 0
+                                flag_mt = datetime.datetime.fromtimestamp(0)
                             if flag_mt < file_mt:
                                 should_process_file = True
 
