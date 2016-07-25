@@ -2,3 +2,6 @@
 .*.swp
 *.egg*
 dist/
+.cache
+.coverage
+.tox
