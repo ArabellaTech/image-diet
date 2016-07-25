@@ -1,4 +1,5 @@
-from setuptools import setup, find_packages
+from setuptools import find_packages
+from setuptools import setup
 
 long_description = '''\
 django-image-diet is a Django application for removing unnecessary bytes from image
@@ -13,7 +14,7 @@ setup(
     author="Arabel.la",
     author_email='geeks@arabel.la',
     name='django-image-diet',
-    version='0.1.3',
+    version='0.1.4',
     description='Remove unnecessary bytes from images',
     long_description=long_description,
     url='https://github.com/ArabellaTech/django-image-diet',
@@ -24,12 +25,15 @@ setup(
         'Environment :: Web Environment',
         'Intended Audience :: Developers',
         'Operating System :: OS Independent',
-        'Programming Language :: Python',
+        'Programming Language :: Python :: 2.7',
+        'Programming Language :: Python :: 3.3',
+        'Programming Language :: Python :: 3.4',
+        'Programming Language :: Python :: 3.5',
         'Framework :: Django',
         'Topic :: Utilities',
     ],
     install_requires=[
-        'django>=1.3',
+        'django>=1.8<1,9',
     ],
     include_package_data=True,
     packages=find_packages(),

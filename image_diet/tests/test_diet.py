@@ -1,9 +1,12 @@
 import os
-from os.path import join, dirname
-from shutil import copyfile
-from subprocess import call, PIPE
+
 from django.test import TestCase
 from image_diet import diet
+from os.path import dirname
+from os.path import join
+from shutil import copyfile
+from subprocess import PIPE
+from subprocess import call
 
 TEST_DIR = join(dirname(__file__), 'test_files')
 
