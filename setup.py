@@ -14,7 +14,7 @@ setup(
     author="Arabel.la",
     author_email='geeks@arabel.la',
     name='django-image-diet',
-    version='0.1.4.2',
+    version='0.1.4.4',
     description='Remove unnecessary bytes from images',
     long_description=long_description,
     url='https://github.com/ArabellaTech/django-image-diet',
