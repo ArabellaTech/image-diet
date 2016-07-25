@@ -120,3 +120,59 @@ Known bugs
   to data loss (if image folders contain files with .diet or .orig extension)
 
 
+External tools used for image shrinking.
+========================================
+
+JPEG:
+- jpegtran (http://jpegclub.org/jpegtran/; included in libjpeg-progs package
+  on Ubuntu)
+- Jpegoptim (http://www.kokkonen.net/tjko/projects.html)
+
+GIF (used only for optimizing animated GIFs):
+- Gifsicle (http://www.lcdf.org/gifsicle/)
+
+PNG:
+- OptiPNG (http://optipng.sourceforge.net/)
+- AdvanceCOMP PNG (http://advancemame.sourceforge.net/doc-advpng.html)
+- Pngcrush (http://pmt.sourceforge.net/pngcrush/)
+- PngQuant
+
+Ubuntu packages are:
+- libjpeg-progs
+- jpegoptim
+- gifsicle
+- optipng
+- advancecomp
+- pngcrush
+- pngquant
+
+CentOS packages are:
+- jpegtran: libjpeg
+- jpegoptim: can't find rpm on internet
+- gifsicle: gifsicle package on repoforge
+- optipng: optipng package in EPEL
+- advancecomp: advancecomp package on repoforge
+- pngcrush: pngcrush package on repoforge
+- pngquant: TODO update instructions
+
+Brew for MacOSX:
+- jpeg
+- jpegoptim
+- gifsicle
+- optipng
+- advancecomp
+- pngcrush
+- pngquant
+
+Alternative on MacOSX:
+Install imageoptim (http://imageoptim.com) and then symlink from /usr/bin/
+to all the required packages:
+sudo ln -s /Applications/ImageOptim.app/Contents/MacOS/advpng
+sudo ln -s /Applications/ImageOptim.app/Contents/MacOS/gifsicle
+sudo ln -s /Applications/ImageOptim.app/Contents/MacOS/jpegoptim
+sudo ln -s /Applications/ImageOptim.app/Contents/MacOS/jpegtran
+sudo ln -s /Applications/ImageOptim.app/Contents/MacOS/optipng
+sudo ln -s /Applications/ImageOptim.app/Contents/MacOS/pngcrush
+pngquant: TODO update instructions
+
+
