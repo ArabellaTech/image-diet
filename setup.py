@@ -33,7 +33,7 @@ setup(
         'Topic :: Utilities',
     ],
     install_requires=[
-        'django>=1.8, <1.9',
+        'django>=2.0,<2.1',
     ],
     include_package_data=True,
     packages=find_packages(),
